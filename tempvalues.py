@@ -1,2 +1,2 @@
-name = "Leaf name"
-disease = "something.."
+name = "Apple"
+disease = "Apple Cedar Rust"

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <head>
     <title>
-        Leaf Classification
+        Leaf Classification and Disease Detection
     </title>
+    <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
     <style>
         #black {
             background-color: darkolivegreen;
@@ -13,22 +14,47 @@
         body {
             background: black;
         }
-        .col-5, .col-7, .col-4 {
-            height: auto;
-        }
-        .col-5, .col-7, .col-4 {
+        .col-6, .col-8, .col-4, .col-2 {
             background-color: #f7ffe6;
             color: #003300;
             font-size: large;
             padding-top: 35px;
             padding-bottom: 35px;
-
+            height: auto;
         }
         #upload-button {
             height: 80px;
             width: 240px;
             background-color:#e65c00;
             border: none;
+        }
+        #box {
+            border-style: solid;
+            border-color: #ff9933;
+            border-radius: 10px;
+            border-width: 5px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #ff9933;
+            font-family: 'Amaranth';font-size: 22px;
+        }
+        .footer {
+             background-color: darkolivegreen;;
+            color: white;
+            padding: 30px;
+            align-content: center;
+        }
+        a:link {
+            color: white;
+        }
+        a:visited {
+            color: white;
+        }
+        a:hover {
+            color: white;
+        }
+        a:active {
+            color: white;
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -59,10 +85,11 @@
                     </div>
                     <div class="col-4">
                         <h4>Image Pre-processing</h4>
-                        <p>We use neural network model to classify the leaves. We use neural network model to classify the leaves.We use neural network model to classify the leaves.We use neural network model to classify the leaves.</p>
+                        <p>Three sets of features are also provided per image: a shape contiguous descriptor, an interior texture histogram, and a ﬁne-scale margin histogram. For each feature, a 64-attribute vector is given per leaf sample.</p>
                     </div>
                     <div class="col-4">
-                        <img src=" {{url_for('send_image', filename=image_name)}}" alt="Upload the unknown leaf and find the name!" height="250px" width="250px">
+                        <p><bold>View the image here!!</bold></p>
+                        <img src=" {{url_for('send_image', filename=image_name)}}" alt="Upload the unknown leaf and find the name!" height="200px" width="200px">
                     </div>
                 </div>
             </div>
@@ -71,15 +98,14 @@
                     <center><h3 >Leaf Classification</h3></center>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <img src="{{ leaf_image }}" height="250px" width="250px">
+                    <div class="col-8">
+                        <p>Convolutional Neural Network is a type of neural network type which is specifically designed to work better on image processing applications, it inbuilts the convolution methods and readily extracts the feature of an image and converts it into a lower dimension without losing its characteristics. Using the BW preprocessed images of leaves, our model could classify all species images correctly almost 97.8 % times which is a very good result considering the variability in the shapes and sizes of leaves and the different variations in the photographs. 
+                        </p>
                     </div>
-                    <div class="col-4">
-                        <h4>Leaf Classification</h4>
-                        <p>We use neural network model to classify the leaves. We use neural network model to classify the leaves.We use neural network model to classify the leaves.We use neural network model to classify the leaves.</p>
-                    </div>
-                    <div class="col-4">                        
-                        <p>Leaf Type: {{ identity }}</p>
+                    <div class="col-4">  
+                        <div id="box">
+                            <p>Leaf Type: {{ identity }}</p>
+                        </div> 
                     </div>                    
                 </div>
             </div>
@@ -88,19 +114,31 @@
                     <center><h3>Disease Detection</h3></center>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <img src="{{ disease_image }}" height="250px" width="250px">
+                    <div class="col-2">
+                        <img src="{{ disease_image }}" height="180px" width="180px">
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <h4>Disease Detection</h4>
-                        <p>We use neural network model to classify the leaves. We use neural network model to classify the leaves.We use neural network model to classify the leaves.We use neural network model to classify the leaves.</p>
+                        <p>Using Convolutional Neural Network, we are also able to identify different diseases for different plant leaves using a convolutional neural network trained specifically for that leaf. We broadly identity five type of leaves and are accurately able to determine the whether the leaves are healthy or unhealthy. In case it is unhealthy, we are also able to identify the disease the leaf has.</p>
                     </div>
                     <div class="col-4">
-                        <p>Leaf Disease: {{ disease }}</p>
+                        <div id="box">
+                            <p>Leaf Disease: {{ disease }}</p>
+                        </div>                        
                     </div>
                 </div>
             </div>            
         </div>
     </div>
+    <div class="container">
+        <footer class="footer">
+            <div class="col-12 align-self-center">
+                <div class="text-center">
+                    Github link: Click here -><a href="https://github.com/dip-project-33/Leaf-Classification-and-Disease-Detection">Leaf Classification and Disease Detection Code</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+        
 </body>
 </html>
